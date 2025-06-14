@@ -22,7 +22,7 @@ const ProductCard = ({ product }) => {
 
   return (
     <Link to={`/product/${product.id}`} className="group">
-      <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden">
+      <div className="product-card bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden">
         <div className="relative overflow-hidden">
           <img
             src={product.image}
@@ -35,12 +35,12 @@ const ProductCard = ({ product }) => {
             </span>
           </div>
         </div>
-        
+
         <div className="p-4">
           <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors">
             {truncateTitle(product.title)}
           </h3>
-          
+
           <div className="flex items-center space-x-1 mb-2">
             <div className="flex items-center">
               <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
@@ -49,12 +49,12 @@ const ProductCard = ({ product }) => {
               </span>
             </div>
           </div>
-          
+
           <div className="flex items-center justify-between">
             <span className="text-2xl font-bold text-gray-900">
               ${product.price.toFixed(2)}
             </span>
-            
+
             {user && (
               <button
                 onClick={handleAddToCart}
