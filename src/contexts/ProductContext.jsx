@@ -29,7 +29,7 @@ export const ProductProvider = ({ children }) => {
         if (response.status === 404) {
           throw new Error(`Without products`);
         } else if (response.status >= 500) {
-          throw new Error('Failed to fetch product');
+          throw new Error('Failed to fetch products');
         } else {
           throw new Error(`Error code: ${response.status})`);
         }
