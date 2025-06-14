@@ -11,7 +11,7 @@ const Cart = () => {
 
   if (!user) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="product-card min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
           <ShoppingCart className="mx-auto h-16 w-16 text-gray-400 mb-4" />
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Access Denied</h2>
@@ -73,9 +73,9 @@ const Cart = () => {
             <ArrowLeft size={20} />
             <span>Continue Shopping</span>
           </button>
-          
+
           <h1 className="text-3xl font-bold text-gray-900">Shopping Cart</h1>
-          
+
           <button
             onClick={clearCart}
             className="flex items-center space-x-2 text-red-600 hover:text-red-700 transition-colors"
@@ -94,7 +94,7 @@ const Cart = () => {
                   Cart Items ({cartItems.length})
                 </h2>
               </div>
-              
+
               <div className="divide-y divide-gray-200">
                 {cartItems.map((item) => (
                   <div key={item.id} className="p-6 flex items-center space-x-4">
@@ -165,7 +165,7 @@ const Cart = () => {
           <div className="lg:col-span-1">
             <div className="bg-white rounded-lg shadow-md p-6 sticky top-24">
               <h2 className="text-xl font-semibold text-gray-900 mb-6">Order Summary</h2>
-              
+
               <div className="space-y-4">
                 <div className="flex justify-between text-gray-600">
                   <span>Subtotal</span>
