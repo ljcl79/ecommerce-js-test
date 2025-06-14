@@ -35,6 +35,22 @@ export const ProductProvider = ({ children }) => {
     }
   };
 
+  const fetchProductById = async (id) => {
+    try {
+      setLoading(true);
+      const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+      if (!response.ok) throw new Error('Failed to fetch product');
+      const product = await response.json();
+      return product;
+    } catch (err) {
+      setError(err.message);
+      return null; // o lanza el error si prefieres manejarlo arriba
+    } finally {
+      setLoading(false);
+    }
+  };
+
+
   const fetchCategories = async () => {
     try {
       const response = await fetch('https://fakestoreapi.com/products/categories');
@@ -46,8 +62,8 @@ export const ProductProvider = ({ children }) => {
     }
   };
 
-  const getProductById = (id) => {
-    return products.find(product => product.id === parseInt(id));
+  const getProductById = async (id) => {
+    return await fetchProductById(id);
   };
 
   const getProductsByCategory = (category) => {
