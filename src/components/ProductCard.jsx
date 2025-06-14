@@ -21,7 +21,7 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <Link to={`/product/${product.id}`} className="group">
+    <Link id={`product_${product.id}`} to={`/product/${product.id}`} className="group" >
       <div className="product-card bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden">
         <div className="relative overflow-hidden">
           <img
@@ -67,7 +67,7 @@ const ProductCard = ({ product }) => {
           </div>
         </div>
       </div>
-    </Link>
+    </Link >
   );
 };
 

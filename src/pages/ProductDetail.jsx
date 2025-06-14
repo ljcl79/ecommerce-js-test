@@ -79,7 +79,7 @@ const ProductDetail = () => {
               </span>
 
               {/* Title */}
-              <h1 className="text-3xl font-bold text-gray-900">
+              <h1 className="text-3xl font-bold text-gray-900" data-cy="product-name">
                 {product.title}
               </h1>
 
@@ -90,8 +90,8 @@ const ProductDetail = () => {
                     <Star
                       key={i}
                       size={20}
-                      className={i < Math.floor(product.rating?.rate || 0) 
-                        ? "fill-yellow-400 text-yellow-400" 
+                      className={i < Math.floor(product.rating?.rate || 0)
+                        ? "fill-yellow-400 text-yellow-400"
                         : "text-gray-300"}
                     />
                   ))}
@@ -102,7 +102,7 @@ const ProductDetail = () => {
               </div>
 
               {/* Price */}
-              <div className="text-4xl font-bold text-gray-900">
+              <div className="text-4xl font-bold text-gray-900" data-cy="product-price">
                 ${product.price.toFixed(2)}
               </div>
 
@@ -146,12 +146,12 @@ const ProductDetail = () => {
                   <ShoppingCart size={20} />
                   <span>{user ? 'Add to Cart' : 'Login to Purchase'}</span>
                 </button>
-                
+
                 <button
                   onClick={() => setIsWishlisted(!isWishlisted)}
                   className={`flex items-center justify-center space-x-2 px-8 py-3 rounded-lg transition-colors font-medium border-2
-                    ${isWishlisted 
-                      ? 'bg-red-50 border-red-500 text-red-600' 
+                    ${isWishlisted
+                      ? 'bg-red-50 border-red-500 text-red-600'
                       : 'bg-white border-gray-300 text-gray-700 hover:border-red-500 hover:text-red-600'
                     }`}
                 >
