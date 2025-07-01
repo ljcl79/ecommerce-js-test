@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Eye, EyeOff, LogIn, Store } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
+import { useCart } from '../contexts/CartContext';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +12,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const { addToCart } = useCart();
 
   const { login } = useAuth();
   const navigate = useNavigate();
@@ -34,6 +36,12 @@ const Login = () => {
     try {
       const result = await login(formData.email, formData.password);
       if (result.success) {
+        const product = location.state?.product || '';
+        const quantity = location.state?.quantity || 1;
+        console.log(product);
+        if (product !== '') {
+          addToCart(product, quantity);
+        }
         navigate(from, { replace: true });
       } else {
         setError(result.error);

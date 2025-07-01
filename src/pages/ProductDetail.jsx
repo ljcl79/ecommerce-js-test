@@ -46,7 +46,12 @@ const ProductDetail = () => {
       addToCart(product, quantity);
       setQuantity(1);
     } else {
-      navigate('/login');
+      navigate('/login', {
+        state: {
+          product,
+          quantity
+        }
+      });
     }
   };
 

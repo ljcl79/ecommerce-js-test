@@ -27,11 +27,13 @@ export const ProductProvider = ({ children }) => {
       const response = await fetch('https://fakestoreapi.com/products');
       if (!response.ok) {
         if (response.status === 404) {
-          throw new Error(`Without products`);
-        } else if (response.status >= 500) {
-          throw new Error('Failed to fetch products');
+          throw new Error(`Solicitud de consulta no válida`);
+        } else if (response.status === 500) {
+          throw new Error('Error general de la API');
+        } else if (response.status === 503) {
+          throw new Error('Servicio no disponible');
         } else {
-          throw new Error(`Error code: ${response.status})`);
+          throw new Error(`Código de error: (${response.status})`);
         }
       }
       const data = await response.json();

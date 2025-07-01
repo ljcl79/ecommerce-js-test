@@ -108,7 +108,7 @@ const Home = () => {
         {/* Products Grid */}
         {filteredProducts.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-xl text-gray-600">No products found matching your criteria.</p>
+            <p className="text-xl text-gray-600">Ningún producto disponible.</p>
           </div>
         ) : (
           <>
